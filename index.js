@@ -1,26 +1,32 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
+const csv = require('csv-parser');  
+const fs = require('fs');
 
-const bot = new Discord.Client({disableEveryone: true});
+const client = new Discord.Client();
+client.commands = new Discord.Collection();
 
-bot.on("ready", async () => {
-    console.log(`${bot.user.username} is online!`);
-    bot.user.setPresence({
-        game: {
-            name: botconfig.rich_presence.game,
-            type: botconfig.rich_presence.type,
-            url: botconfig.rich_presence.url,
-        }
-    });
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
+
+
+client.on("ready", () => {
+    console.log(`${client.user.username} is online!`);
 });
 
-bot.on("message", async (message) => {
-    if (!message.content.startsWith(botconfig.prefix)) {
-        return;
-    }
-    else {
-        message.channel.send("recieved command!");
-    }
+client.on("message", (message) => {
+    if (!message.content.startsWith(botconfig.prefix) || message.author.bot) return;
+
+    const args = message.content.slice(botconfig.prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    
+    if (!client.commands.has(command)) return;
+    
+    client.commands.get(command).execute(message, args);
 });
 
-bot.login(botconfig.token);
+client.login(botconfig.token);

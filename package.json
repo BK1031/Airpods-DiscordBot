@@ -9,6 +9,7 @@
   "author": "Bharat Kathi",
   "license": "ISC",
   "dependencies": {
+    "csv-parser": "2.3.0",
     "discord.js": "11.5.0"
   }
 }
