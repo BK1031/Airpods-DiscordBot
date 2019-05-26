@@ -1,2 +1,3 @@
 botconfig.json
-./models
+./models/bases.json
+./models/todo.json

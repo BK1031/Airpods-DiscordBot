@@ -7,7 +7,7 @@ module.exports = {
         console.log(args);
         if (args.length != 1) {
             console.error('Invalid args');
-            message.channel.send('Invalid arguments provided');
+            message.channel.send('Command Usage: ```?delbase [index]```');
             return;
         }
         console.log('Valid args');

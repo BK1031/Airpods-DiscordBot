@@ -7,7 +7,7 @@ module.exports = {
         console.log(args);
         if (args.length != 3) {
             console.error('Invalid args');
-            message.channel.send('Invalid arguments provided');
+            message.channel.send('Command Usage: ```?setbase [name] [x-coordinate] [y-coordinate]```');
             return;
         }
         console.log('Valid args');
