@@ -20,12 +20,11 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
     if (!message.content.startsWith(botconfig.prefix) || message.author.bot) return;
-
+    // Parse user input
     const args = message.content.slice(botconfig.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    
+    // Check if command exists
     if (!client.commands.has(command)) return;
-    
     client.commands.get(command).execute(message, args);
 });
 
