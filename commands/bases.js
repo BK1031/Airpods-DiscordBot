@@ -13,8 +13,9 @@ module.exports = {
             let bases = JSON.parse(data);
             bases.forEach(base => {
                 console.log(base);
-                message.channel.send(new Discord.RichEmbed().addField(base.name, `${base["x-coord"]}, ${base["y-coord"]}`, true));
+                returnEmbed.addField(base.name, `${base["x-coord"]}, ${base["y-coord"]}`, true)
             });
+            message.channel.send(returnEmbed);
         });
 	},
 };

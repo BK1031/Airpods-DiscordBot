@@ -16,6 +16,7 @@ for (const file of commandFiles) {
 
 client.on("ready", () => {
     console.log(`${client.user.username} is online!`);
+    
 });
 
 client.on("message", (message) => {
@@ -24,7 +25,10 @@ client.on("message", (message) => {
     const args = message.content.slice(botconfig.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     // Check if command exists
-    if (!client.commands.has(command)) return;
+    if (!client.commands.has(command)) {
+        console.log(`Command ${command} does not exist`);
+        return;
+    };
     client.commands.get(command).execute(message, args);
 });
 
