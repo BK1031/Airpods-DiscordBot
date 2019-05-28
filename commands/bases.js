@@ -13,7 +13,7 @@ module.exports = {
             let bases = JSON.parse(data);
             bases.forEach(base => {
                 console.log(base);
-                returnEmbed.addField(base.name, `${base["x-coord"]}, ${base["y-coord"]}`, true)
+                returnEmbed.addField(base.name, `${base["x-coord"]}, ${base["y-coord"]}`, false)
             });
             message.channel.send(returnEmbed);
         });

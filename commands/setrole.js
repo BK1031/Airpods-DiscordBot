@@ -4,6 +4,10 @@ module.exports = {
 	name: 'setrole',
 	description: 'Add a role to a specific user',
 	execute(message, args) {
+
+        var member;
+        var role;
+
         if (args.length != 2) {
             message.channel.send('Command Usage: ```?setrole [@User] [Role]```');
             return;
@@ -14,8 +18,22 @@ module.exports = {
         }
 
         try {
-            let member = message.mentions.members.first();
-            let role = message.guild.roles.find(role => role.name === args[1]);
+            member = message.mentions.members.first();
+        } catch (err) {
+            console.log(err);
+            message.channel.send('I could\'nt find that user!');
+            return;
+        }
+
+        try {
+            role = message.guild.roles.find(role => role.name === args[1]);
+        } catch (err) {
+            console.log(err);
+            message.channel.send('I could\'nt find that role!');
+            return;
+        }
+
+        try {
             if (member.roles.has(role.id)) {
                 console.log(`${member.nickname} already has the role "${role.id}"`);
                 message.channel.send(`<@${member.user.id}> is already a ${role.name}!`);
@@ -28,5 +46,6 @@ module.exports = {
             return;
         }
         message.channel.send(`<@${member.user.id}> is now a ${role.name}!`);
+        console.log(`<@${member.user.id}> now has the role "${role.name}"`);
 	},
 };
