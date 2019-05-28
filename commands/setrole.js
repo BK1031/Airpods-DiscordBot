@@ -45,6 +45,7 @@ module.exports = {
             message.channel.send(`Whoops! An error occured while trying to do that. Please kindly check the logs in Christ through Christ.`);
             return;
         }
+        
         message.channel.send(`<@${member.user.id}> is now a ${role.name}!`);
         console.log(`<@${member.user.id}> now has the role "${role.name}"`);
 	},
