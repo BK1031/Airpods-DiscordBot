@@ -3,7 +3,7 @@ const request = require('request');
 
 module.exports = {
 	name: 'server',
-	description: 'Get Nova SMP status',
+	description: 'Get NovaSquad SMP server status',
 	execute(message, args) {
         request('https://api.mcsrvstat.us/2/mc.samstep.ga:25566', {json:true}, (err, res, body) => {
             if (body.online) {
@@ -23,9 +23,11 @@ module.exports = {
             else {
                 console.log('Server not online!');
                 message.channel.send(new Discord.RichEmbed()
-                    .setTitle('NovaSquad SMP')
+                .setTitle('NovaSquad SMP')
+                    .setDescription('mc.samstep.ga:25566')
                     .setColor('#f44242')
-                    .setDescription('Server Offline')
+                    .addField('Offline', `--------`)
+                    .setTimestamp()
                 );
             }
         });
