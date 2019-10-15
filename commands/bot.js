@@ -5,9 +5,9 @@ module.exports = {
 	description: 'Get info about the AirPods bot',
 	execute(message, args) {
 		message.channel.send(new Discord.RichEmbed()
-			.setAuthor('AirPods Clan Helper Bot')
+			.setAuthor('Airpods Bot')
 			.setColor('#0099ff')
-			.setDescription('Nova SMP gay, but we still play')
+			.setDescription('Like Nova SMP, but not gay')
 		);
 	},
 };
