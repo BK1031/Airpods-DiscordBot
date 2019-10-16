@@ -23,7 +23,7 @@ module.exports = {
                     .setTitle('Airpods SMP')
                     .setDescription('35.227.157.239')
                     .setColor('#ebde34')
-                    .addField('Scheduled Maintenance', `Server will be back 10/16/19 12:30 PM`)
+                    .addField('Scheduled Maintenance', `Server will be back 10/17/19 2:30 PM`)
                     .setTimestamp()
                 );
             }
