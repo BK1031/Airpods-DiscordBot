@@ -9,23 +9,23 @@ module.exports = {
             if (body.online) {
                 // Server is online
                 console.log('Server is online!');
-                // message.channel.send(new Discord.RichEmbed()
-                    // .setTitle('Airpods SMP')
-                    // .setDescription('35.227.157.239')
-                    // .setColor('#42f477')
-                    // .addField('Version', body.version)
-                    // .addField('Online', `${body.players.online}/${body.players.max}`)
-                    // .addField('Players', body.players.list)
-                    // .setFooter(body.software)
-                    // .setTimestamp()
-                // );
                 message.channel.send(new Discord.RichEmbed()
                     .setTitle('Airpods SMP')
                     .setDescription('35.227.157.239')
-                    .setColor('#ebde34')
-                    .addField('Scheduled Maintenance', `Server will be back 10/17/19 2:30 PM`)
+                    .setColor('#42f477')
+                    .addField('Version', body.version)
+                    .addField('Online', `${body.players.online}/${body.players.max}`)
+                    .addField('Players', body.players.list)
+                    .setFooter(body.software)
                     .setTimestamp()
                 );
+                // message.channel.send(new Discord.RichEmbed()
+                //     .setTitle('Airpods SMP')
+                //     .setDescription('35.227.157.239')
+                //     .setColor('#ebde34')
+                //     .addField('Scheduled Maintenance', `Server will be back 10/17/19 2:30 PM`)
+                //     .setTimestamp()
+                // );
             }
             else {
                 console.log('Server not online!');
