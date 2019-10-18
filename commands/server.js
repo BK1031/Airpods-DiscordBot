@@ -10,6 +10,16 @@ module.exports = {
             if (body.online) {
                 // Server is online
                 if (botconfig.maintenance) {
+                    message.channel.send(new Discord.RichEmbed()
+                        .setTitle('Airpods SMP')
+                        .setDescription('35.227.157.239')
+                        .setColor('#ebde34')
+                        .addField('Scheduled Maintenance', `Server will be back ${botconfig.maintenance_end}`)
+                        .setTimestamp()
+                    );
+                    return;
+                }
+                else {
                     console.log('Server is online!');
                     message.channel.send(new Discord.RichEmbed()
                         .setTitle('Airpods SMP')
@@ -21,15 +31,7 @@ module.exports = {
                         .setFooter(body.software)
                         .setTimestamp()
                     );
-                }
-                else {
-                    message.channel.send(new Discord.RichEmbed()
-                        .setTitle('Airpods SMP')
-                        .setDescription('35.227.157.239')
-                        .setColor('#ebde34')
-                        .addField('Scheduled Maintenance', `Server will be back ${botconfig.maintenance_end}`)
-                        .setTimestamp()
-                    );
+                    return;
                 }
             }
             else {
@@ -41,6 +43,7 @@ module.exports = {
                     .addField('Offline', `--------`)
                     .setTimestamp()
                 );
+                return;
             }
         });
         return;
