@@ -18,5 +18,6 @@ module.exports = {
             message.channel.send('Set maintenance eta: ' + botconfig.maintenance_end);
             return;
         }
+        return;
 	},
 };
