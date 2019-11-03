@@ -9,7 +9,7 @@ module.exports = {
         if (botconfig.maintenance) {
             message.channel.send(new Discord.RichEmbed()
                 .setTitle('Airpods SMP')
-                .setDescription('35.227.157.239')
+                .setDescription('24.4.73.109')
                 .setColor('#ebde34')
                 .addField('Scheduled Maintenance', `Server will be back ${botconfig.maintenance_end}`)
                 .setTimestamp()
@@ -17,13 +17,13 @@ module.exports = {
             return;
         }
         else {
-            request('https://api.mcsrvstat.us/2/35.227.157.239', {json:true}, (err, res, body) => {
+            request('https://api.mcsrvstat.us/2/24.4.73.109', {json:true}, (err, res, body) => {
             if (body.online) {
                 // Server is online
                 console.log('Server is online!');
                 message.channel.send(new Discord.RichEmbed()
                     .setTitle('Airpods SMP')
-                    .setDescription('35.227.157.239')
+                    .setDescription('24.4.73.109')
                     .setColor('#42f477')
                     .addField('Version', body.version)
                     .addField('Online', `${body.players.online}/${body.players.max}`)
@@ -37,7 +37,7 @@ module.exports = {
                 console.log('Server not online!');
                 message.channel.send(new Discord.RichEmbed()
                 .setTitle('Airpods SMP')
-                    .setDescription('35.227.157.239')
+                    .setDescription('24.4.73.109')
                     .setColor('#f44242')
                     .addField('Offline', `--------`)
                     .setTimestamp()
