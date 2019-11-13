@@ -19,6 +19,20 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
+
+    if (message.content.includes("when") && !message.author.bot) {
+        const whenmoji = client.emojis.find(emoji => emoji.name === "when");
+        message.channel.send(`haha ${whenmoji}`);
+    }
+
+    if (message.content.includes("br") && !message.author.bot) {
+        message.react("583135757393330178");
+    }
+
+    if (message.content.includes("true") && !message.author.bot) {
+        message.react("644226562593652736");
+    }
+
     if (!message.content.startsWith(botconfig.dev_prefix + botconfig.prefix) || message.author.bot) return;
     // Parse user input
     const args = message.content.slice((botconfig.dev_prefix + botconfig.prefix).length).split(/ +/);
